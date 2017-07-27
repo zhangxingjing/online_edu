@@ -2,37 +2,38 @@
 
 {% block title %}注册{% endblock %}
 
-{% block style %}<style>
+{% block style %}
+    <style>
         .form{
             width:300px;
             margin:0 auto;
-            }
-    .btn.btn-primary{
-        width: 300px;
-    }
- .h3{
-        text-align: center;
-    }
-    </style>{% endblock %}
+        }
+        .btn.btn-primary{
+            width: 300px;
+        }
+        .h3{
+            text-align: center;
+        }
+    </style>
+{% endblock %}
 
 {% block main %}
     <h3 class="h3">注册</h3>
-<div class="form">
-<form action="" method="post">
-      <div class="form-group">
-    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="用户名" name="name">
-  </div>
-  <div class="form-group">
-    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="电话" name="telephone">
-  </div>
-
-      <div class="form-group">
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="密码" name="password">
-  </div>
-      <div class="form-group">
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="确认密码" name="password1">
-  </div>
-  <button type="submit" class="btn btn-primary">注册</button>
-</form>
+    <div class="form">
+        <form action="" method="post">
+            <div class="form-group">
+                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="用户名" name="name">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="电话" name="telephone">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="密码" name="password">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="确认密码" name="password1">
+            </div>
+            <button type="submit" class="btn btn-primary">注册</button>
+        </form>
     </div>
 {% endblock %}

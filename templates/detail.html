@@ -1,8 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}
-详情页
-{% endblock %}
+{% block title %}详情页{% endblock %}
 
 {% block style %}
     <style>
@@ -38,44 +36,43 @@
             margin-top: 20px;
             margin-left: 100px;
         }
-    .content{
-        margin: 20px;
-    }
+        .content{
+            margin: 20px;
+        }
     </style>
 {% endblock %}
 
 {% block main %}
-        <p class="title">{{ question.title }}</p>
-        <div class="info">
-            <span class="username">作者:{{ question.author.name }}</span>
-            <span class="time">时间:{{ question.create_time }}</span>
-        </div>
-        <hr>
-        <div class="content">
-            <p class="content">{{ question.content}}</p>
-        </div>
-        <hr>
-        <h4>评论()</h4>
-        <form action="{{ url_for('detail',question_id = question.id) }}" method="post">
-            <div>
+    <p class="title">{{ question.title }}</p>
+    <div class="info">
+        <span class="username">作者:{{ question.author.name }}</span>
+        <span class="time">时间:{{ question.create_time }}</span>
+    </div>
+    <hr>
+    <div class="content">
+        <p class="content">{{ question.content}}</p>
+    </div>
+    <hr>
+    <h4>评论()</h4>
+    <form action="{{ url_for('detail',question_id = question.id) }}" method="post">
+        <div>
             <input type="text" placeholder="" name="comment">
-            </div>
-            <button type="submit" class="btn btn-primary">发表评论</button>
-        </form>
+        </div>
+        <button type="submit" class="btn btn-primary">发表评论</button>
+    </form>
     <ul>
-    {% for comment in question.comments1 %}
-        <li>
-        <hr>
-        <div class="avatar-group">
-            <img src="{{ url_for('static',filename='images/logo.jpg') }}" class="avatar"></img>
-        </div>
-        <div class="comment_detail">
-            <span class="username_detail">{{ comment.author.name }}</span>
-            <span class="time">{{ comment.create_time }}</span>
-        </div>
-        <p class="comment_user">{{ comment.comment }}</p>
-        </li>
-    {% endfor %}
-</ul>
-
+        {% for comment in question.comments1 %}
+            <li>
+            <hr>
+            <div class="avatar-group">
+                <img src="{{ url_for('static',filename='images/logo.jpg') }}" class="avatar"></img>
+            </div>
+            <div class="comment_detail">
+                <span class="username_detail">{{ comment.author.name }}</span>
+                <span class="time">{{ comment.create_time }}</span>
+            </div>
+            <p class="comment_user">{{ comment.comment }}</p>
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock %}

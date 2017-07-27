@@ -1,29 +1,30 @@
 {% extends 'base.html' %}
+
 {% block title %}问答页面{% endblock %}
 
 {% block style %}
-<style>
+    <style>
         .form{
             width: 305px;
             margin:0 auto;
-            }
-    .h3{
-        text-align: center;
-    }
+        }
+        .h3{
+            text-align: center;
+        }
     </style>
 {% endblock %}
 
 {% block main %}
     <h3 class="h3">发布问答</h3>
-<div class="form">
-<form action="" method="post">
-  <div class="form-group">
-    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="标题" name="title">
-  </div>
-  <div class="form-group">
-      <textarea name="content" id="content" cols="35" rows="5">内容</textarea>
-  </div>
-  <button type="submit" class="btn btn-primary">发布问答</button>
-</form>
+    <div class="form">
+        <form action="" method="post">
+            <div class="form-group">
+                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="标题" name="title">
+            </div>
+            <div class="form-group">
+                <textarea name="content" id="content" cols="35" rows="5">内容</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">发布问答</button>
+        </form>
     </div>
 {% endblock %}
