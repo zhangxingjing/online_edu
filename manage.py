@@ -2,6 +2,7 @@ from flask_script import Manager
 from flask_migrate import Migrate,MigrateCommand
 from online_edu import app
 from exts import db
+from modles import User,Question,Comment
 
 manager = Manager(app)
 

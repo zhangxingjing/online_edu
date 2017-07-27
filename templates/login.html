@@ -13,21 +13,25 @@
     .btn.btn-primary{
         width: 300px;
     }
+    .h3{
+        text-align: center;
+    }
     </style>
 
 {% endblock %}
 
 
 {% block main %}
+    <h3 class="h3"> 登录</h3>
     <div class="form">
-<form>
+<form action="" method="post">
   <div class="form-group">
-    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="电话号码" name="telephone">
   </div>
   <div class="form-group">
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="密码" name="password">
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">登录</button>
 </form>
     </div>
 {% endblock %}
