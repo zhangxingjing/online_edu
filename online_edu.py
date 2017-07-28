@@ -3,6 +3,7 @@ import config
 from modles import User,Question,Comment
 from exts import db
 from decorators import login_limit
+from sqlalchemy import or_
 
 app = Flask(__name__)
 app.config.from_object(config)
@@ -16,6 +17,15 @@ def index():
     }
     return render_template('index.html',**context)
 
+@app.route('/search/')
+def search():
+    q = request.args.get('wd')
+    #或
+    questions = Question.query.filter(or_(Question.title.contains(q),Question.content.contains(q))).order_by('-create_time')
+    #与
+    # questions = Question.query.filter(Question.title.contains(q),Question.content.contains(q))
+    return render_template('index.html',questions=questions)
+
 
 @app.route('/login/',methods=['GET','POST'])
 def login():
@@ -24,8 +34,8 @@ def login():
     else:
         telephone = request.form.get('telephone')
         password = request.form.get('password')
-        user = User.query.filter(User.telephone == telephone,User.password==password).first()
-        if user:
+        user = User.query.filter(User.telephone == telephone).first()
+        if user and user.check_password(password):
             session['user_id'] = user.id
             #一个月不用登录
             session.permanent = True
